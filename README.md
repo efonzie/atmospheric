@@ -44,3 +44,11 @@ You can also run `mgp --https` to convert github ssh urls to https. This is usef
 ````
 
 - Run `mgp link` in your meteor directory to symlink your local packages or `mgp link my:private-package` to symlink an individual package.
+
+# New
+
+## Flags
+
+**--**: The list of environments to install from the git-packages.json file. If this options is not used, it will default to 'all'.
+
+    $ atmospheric -- all dev staging
