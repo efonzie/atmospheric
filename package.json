@@ -4,15 +4,14 @@
   "version": "1.0.0",
   "bin": "./lib/run.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha",
-    "start": "(coffee --compile --output lib --watch src&);./node_modules/nodemon/bin/nodemon.js ./lib/run.js"
+    "test": "node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DispatchMe/mgp"
+    "url": "ssh://git@code.practichem.com:7999/npm/atmospheric.git"
   },
   "bugs": {
-    "url": "https://github.com/DispatchMe/mgp/issues"
+    "url": "http://issues.practichem.com"
   },
   "keywords": [
     "meteor",
