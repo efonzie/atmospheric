@@ -33,18 +33,27 @@ Packages.config = (packageDir) ->
 ###*
 # Load the packages file.
 # @param [file] Defaults to cwd/git-packages.json
+# @param installEnvironments an array of enviroments that are passed in to install
 # @param callback
 ###
 
-Packages.fromFile = (file, callback) ->
-	if _.isFunction(file)
-		callback = file
+Packages.fromFile = (file, installEnvironments, callback) ->
+	if _.isArray(file)
+		callback = installEnvironments
+		installEnvironments = file
 		file = null
+
 	packagesFile = file or process.cwd() + '/git-packages.json'
+	
 	fs.readJson packagesFile, (err, packages) ->
-		# XXX check the packages schema
+		# get the packages for the specified installEnvironments
+		installPackages = {}
+		installEnvironments = [ 'all' ] if installEnvironments.length == 0
+		for installable in installEnvironments
+			installPackages = _.extend(installPackages, packages[installable])
+
 		if callback
-			callback err, packages
+			callback err, installPackages
 		return
 	return
 
