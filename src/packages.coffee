@@ -44,7 +44,7 @@ Packages.fromFile = (file, installEnvironments, callback) ->
 		file = null
 
 	packagesFile = file or process.cwd() + '/git-packages.json'
-	
+
 	fs.readJson packagesFile, (err, packages) ->
 		# get the packages for the specified installEnvironments
 		installPackages = {}
@@ -141,30 +141,6 @@ Packages.ensureGitIgnore = (packages, callback) ->
 			gitIgnore += packageName + '\n'
 			return
 		fs.writeFile filePath, gitIgnore, callback
-		return
-	return
-
-###*
-# Symlink local directories to the packages directory.
-# @param packages The packages to symlink.
-# @param {Function} callback
-###
-
-Packages.link = (packages, callback) ->
-	shell.mkdir '-p', PACKAGE_DIR
-	dirLinked = _.after(_.keys(packages).length, callback)
-	_.forOwn packages, (def, packageName) ->
-		if !def.path or !packageName
-			return
-		# Convert colons in package names to dashes for Windows
-		packageName = packageName.replace(/:/g, '-')
-		dest = PACKAGE_DIR + '/' + packageName
-		shell.rm '-fr', dest
-		src = resolvePath(def.path)
-		checkPathExist src, 'Cannot find package ' + packageName + ' at ' + src
-		shell.ln '-s', src, dest
-		checkPathExist src, 'Link failed for ' + dest
-		dirLinked()
 		return
 	return
 
