@@ -1,7 +1,7 @@
 {
   "name": "atmospheric",
   "description": "Add Meteor git packages to projects that aren't hosted by Atmosphere",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "bin": "./lib/run.js",
   "scripts": {
     "test": "node_modules/.bin/mocha"
