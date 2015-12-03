@@ -1,54 +1,45 @@
-# Meteor Git Packages [![Build Status](https://travis-ci.org/DispatchMe/mgp.svg?branch=master)](https://travis-ci.org/DispatchMe/mgp)
-
-This tools helps you share private meteor packages.
+# This tools helps you share private meteor packages.
 
 ## Getting Started
 
-- `npm install -g mgp`
-
+- `$ npm install -g ssh://git@code.practichem.com:7999/npm/atmospheric.git`
 - Add `git-packages.json` to the root of your project.
 
 ````
 {
-  "my:private-package": {
-    "git": "git@github.com:my/private-packages.git",
-    "version": "commithashortag",
-    "path": "optional/directory/path"
+	"all": {
+    "my:private-package": {
+      "git": "git@github.com:my/private-packages.git",
+      "version": "commithashortag",
+      "path": "optional/directory/path"
+    },
+    "my:other-private-package": {
+      "git": "git@github.com:my/private-packages.git",
+      "version": "commithashortag"
+    }
   },
-  "my:other-private-package": {
-    "git": "git@github.com:my/private-packages.git",
-    "version": "commithashortag"
-  },
-  "my:yet-another-private-package": {
-    "git": "git@github.com:my/private-packages.git",
-    "branch": "dev"
+  "dev": {
+    "my:yet-another-private-package": {
+      "git": "git@github.com:my/private-packages.git",
+      "branch": "dev"
+    }
   }
 }
 ````
 
-- Run `mgp` in your meteor directory to copy the packages from github or `mgp my:private-package` to copy an individual package.
-
-You can also run `mgp --https` to convert github ssh urls to https. This is useful for using [`.netrc`](https://gist.github.com/jperl/91f32a37dc1c12c48ad8) on build machines.
-
-- Add `local-packages.json` to the root of your project:
-
-````
-{
-  "my:private-package": {
-    "path": "~/path/to/private-package"
-  },
-  "my:other-private-package": {
-    "path": "relative/path/to/other-private-package"
-  }
-}
-````
-
-- Run `mgp link` in your meteor directory to symlink your local packages or `mgp link my:private-package` to symlink an individual package.
-
-# New
+- Run `atmospheric` in your meteor directory to copy the packages.
 
 ## Flags
 
-**--**: The list of environments to install from the git-packages.json file. If this options is not used, it will default to 'all'.
+**--https**: Convert github ssh urls to https. This is useful for using [`.netrc`](https://gist.github.com/jperl/91f32a37dc1c12c48ad8) on build machines.
+
+    $ atomospheric --https
+
+**--addToGlobals**: This will keep a list of all of the package names as described in the `package.js` file inside of each package and then run `$ meteor add` on each.
+
+    $ atomospheric --addToGlobals
+
+**--**: The list of environments to install from the git-packages.json file. If this options is not used, the packages in the 'all' collection will be installed. **Note:** there must be a space on both sides of the `--` and it should be the last flag.
 
     $ atmospheric -- all dev staging
+    $ atmospheric --addToGlobals -- all staging
