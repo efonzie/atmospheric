@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-- `$ npm install -g ssh://git@code.practichem.com:7999/npm/atmospheric.git`
+- `$ npm install -g git+ssh://git@code.practichem.com:7999/npm/atmospheric.git`
 - Add `git-packages.json` to the root of your project.
 
 ````
