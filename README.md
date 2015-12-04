@@ -43,3 +43,10 @@
 
     $ atmospheric -- all dev staging
     $ atmospheric --addToGlobals -- all staging
+
+## Development
+
+The project is built with grunt. To develop, run the following:
+
+    $ npm install
+    $ grunt watch
