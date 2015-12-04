@@ -5,6 +5,5 @@ test/packages
 jon_bank-account
 jon_secrets
 jon_bank-account2
-lib
 packages
 npm-debug.log
