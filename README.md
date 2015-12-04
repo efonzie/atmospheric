@@ -2,8 +2,15 @@
 
 ## Getting Started
 
-- `$ npm install -g git+ssh://git@code.practichem.com:7999/npm/atmospheric.git`
-- Add `git-packages.json` to the root of your project.
+Because this is not a publicly published package, it will need to be cloned and installed locally from the code base.
+
+    $ git clone ssh://git@code.practichem.com:7999/npm/atmospheric.git
+    $ cd atmospheric
+    $ npm install
+    $ grunt
+    $ sudo npm install -g .
+
+Add `git-packages.json` to the root of your project.
 
 ````
 {
