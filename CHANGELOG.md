@@ -1,9 +1,9 @@
 # Change Log
 
-### v1.3.0
+### 0.1.1
 
-* Support to specify a branch instead of commit or tag. Thanks sokki
+- Adding the lib directory for when the project is installed
 
-### v1.2.1
+### 0.1.0
 
-* Support git urls other than github (bitbucket, etc). Thanks rhyslbw
+- Initial version
