@@ -195,7 +195,8 @@ Packages.load = (packages, addToGlobals, callback) ->
 					checkPathExist dest, 'Cannot copy package: ' + dest
 					shell.echo 'Done...\n'
 					if addToGlobals
-						if packageName = getPackageName(dest)
+						fetchedPackageName = getPackageName(dest)
+						if fetchedPackageName
 							packagesToAddToMeteor.push packageName
 					return
 				return
