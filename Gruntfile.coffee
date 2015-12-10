@@ -28,4 +28,4 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks 'grunt-banner'
 	grunt.loadNpmTasks 'grunt-contrib-watch'
 
-	grunt.registerTask 'default', [ 'coffee', 'usebanner' ]
+	grunt.registerTask 'default', [ 'coffee', 'usebanner', 'watch' ]

@@ -1,14 +1,12 @@
 # This tools helps you share private meteor packages.
 
+It is forked from [@DispatchMe's](https://github.com/DispatchMe) project [mgp](https://github.com/DispatchMe/mgp) and modified for Practichem's needs.
+
 ## Getting Started
 
-Because this is not a publicly published package, it will need to be cloned and installed locally from the code base.
+Installing this package is just like any other NPM package (we recommend installing it globally):
 
-    $ git clone ssh://git@code.practichem.com:7999/npm/atmospheric.git
-    $ cd atmospheric
-    $ npm install
-    $ grunt
-    $ sudo npm install -g .
+    $ sudo npm install -g atmospheric
 
 Add `git-packages.json` to the root of your project.
 
@@ -46,14 +44,14 @@ Add `git-packages.json` to the root of your project.
 
     $ atomospheric --addToGlobals
 
-**--**: The list of environments to install from the git-packages.json file. If this options is not used, the packages in the 'all' collection will be installed. **Note:** there must be a space on both sides of the `--` and it should be the last flag.
+**--**: The list of environments to install from the git-packages.json file. If this options is not used, the packages in the 'all' collection will be installed. **Note:** there must be a space on both sides of the `--` and it should be the last flag. When using this flag, _all_ is not automatically included and must be part of the list.
 
     $ atmospheric -- all dev staging
     $ atmospheric --addToGlobals -- all staging
 
 ## Development
 
-The project is built with grunt. To develop, run the following:
+The project is written in Coffeescript. A grunt task is available to automatically build the Coffeescript for release. To develop, run the following:
 
     $ npm install
-    $ grunt watch
+    $ grunt
