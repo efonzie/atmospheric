@@ -32,7 +32,7 @@ Add `git-packages.json` to the root of your project.
 }
 ````
 
-- Run `atmospheric` in your meteor directory to copy the packages.
+- Run `atmospheric` in your meteor directory to copy the packages (see flags section below for more options).
 
 ## Flags
 
