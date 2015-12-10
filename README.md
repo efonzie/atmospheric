@@ -1,6 +1,5 @@
 # This tools helps you share private meteor packages.
 
-<<<<<<< HEAD
 It is forked from [@DispatchMe's](https://github.com/DispatchMe) project [mgp](https://github.com/DispatchMe/mgp) and modified for Practichem's needs.
 
 ## Getting Started
